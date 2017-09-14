@@ -31,7 +31,7 @@ module.exports = function(themes, options)
   {
     let themeName = path.basename(themePath, settings.ext).replace(/_(.+)/, '$1');
 
-    themeImports[themeName] = new Buffer(`$current-theme-name: "${themeName}";\n@import "${slash(themePath)}";\n\n`);
+    themeImports[themeName] = new Buffer(`$current-theme-name: "${themeName}";\n@import "themes/${slash(themeName)}";\n\n`);    
   });
 
   return through2.obj(function(file, enc, next)
